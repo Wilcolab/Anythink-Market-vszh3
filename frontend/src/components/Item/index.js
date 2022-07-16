@@ -8,7 +8,6 @@ import {
   ITEM_PAGE_LOADED,
   ITEM_PAGE_UNLOADED,
 } from "../../constants/actionTypes";
-import placeHolder from "../../imgs/placeholder.png";
 
 const mapStateToProps = (state) => ({
   ...state.item,
@@ -52,7 +51,9 @@ class Item extends React.Component {
             <div className="col-6">
               <img
                 src={
-                  this.props.item.image ? this.props.item.image : placeHolder
+                  this.props.item.image
+                    ? this.props.item.image
+                    : process.env.PUBLIC_URL + this.props.item.image
                 }
                 alt={this.props.item.title}
                 className="item-img"
